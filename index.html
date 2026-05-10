@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VNFX Federation – האיגוד הישראלי לפיתוח גוף. תחרויות ברמה בינלאומית, קטגוריות טבעיות ופתוחות, במה מקצועית." />
+  <meta name="keywords" content="פיתוח גוף, תחרות, ישראל, VNFX, bodybuilding, natural, classic physique, bikini" />
+  <title>VNFX Federation | האיגוד הישראלי לפיתוח גוף</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Bebas Neue', 'sans-serif'],
+            condensed: ['Barlow Condensed', 'sans-serif'],
+            body: ['Barlow', 'sans-serif'],
+          },
+          colors: {
+            gold: { DEFAULT: '#CA8A04', light: '#EAB308', dark: '#92400E' },
+            fire: { DEFAULT: '#F97316', dark: '#EA580C' },
+            dark: { DEFAULT: '#0A0A0A', card: '#111111', border: '#1F1F1F' },
+          },
+          animation: {
+            'gradient-shift': 'gradientShift 8s ease infinite',
+            'fade-up': 'fadeUp 0.7s ease forwards',
+            'glow-pulse': 'glowPulse 2.5s ease-in-out infinite',
+            'count-down': 'none',
+          },
+          keyframes: {
+            gradientShift: {
+              '0%,100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            },
+            fadeUp: {
+              from: { opacity: '0', transform: 'translateY(40px)' },
+              to:   { opacity: '1', transform: 'translateY(0)' },
+            },
+            glowPulse: {
+              '0%,100%': { boxShadow: '0 0 20px rgba(234,179,8,0.3)' },
+              '50%': { boxShadow: '0 0 40px rgba(234,179,8,0.7)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:#0A0A0A;color:#E5E5E5;font-family:'Barlow',sans-serif;overflow-x:hidden;}
+
+    /* Gradient text */
+    .text-gradient{background:linear-gradient(135deg,#EAB308 0%,#F97316 50%,#EAB308 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .text-gradient-white{background:linear-gradient(180deg,#FFFFFF 0%,#A3A3A3 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+    /* Glassmorphism */
+    .glass{background:rgba(255,255,255,0.04);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);}
+    .glass-gold{background:rgba(202,138,4,0.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(202,138,4,0.2);}
+
+    /* Glow effects */
+    .glow-gold{box-shadow:0 0 30px rgba(234,179,8,0.25),0 0 60px rgba(234,179,8,0.1);}
+    .glow-fire{box-shadow:0 0 30px rgba(249,115,22,0.35),0 0 60px rgba(249,115,22,0.15);}
+    .text-glow{text-shadow:0 0 30px rgba(234,179,8,0.6);}
+
+    /* Cinematic hero bg */
+    .hero-bg{background:linear-gradient(135deg,#000000 0%,#0D0D00 25%,#1a0a00 50%,#0D0D00 75%,#000000 100%);background-size:400% 400%;animation:gradientShift 8s ease infinite;}
+
+    /* Navbar */
+    #navbar{transition:all 0.4s ease;}
+    #navbar.scrolled{background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(234,179,8,0.15);}
+
+    /* Scroll reveal */
+    .reveal{opacity:0;transform:translateY(50px);transition:opacity 0.8s ease,transform 0.8s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-left{opacity:0;transform:translateX(-50px);transition:opacity 0.8s ease,transform 0.8s ease;}
+    .reveal-left.visible{opacity:1;transform:translateX(0);}
+    .reveal-right{opacity:0;transform:translateX(50px);transition:opacity 0.8s ease,transform 0.8s ease;}
+    .reveal-right.visible{opacity:1;transform:translateX(0);}
+
+    /* Category card hover */
+    .cat-card{transition:all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);}
+    .cat-card:hover{transform:translateY(-8px) scale(1.02);border-color:rgba(234,179,8,0.4);}
+    .cat-card:hover .cat-icon{color:#EAB308;filter:drop-shadow(0 0 12px rgba(234,179,8,0.6));}
+
+    /* Button styles */
+    .btn-primary{background:linear-gradient(135deg,#CA8A04,#F97316);color:#000;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.05em;transition:all 0.3s ease;cursor:pointer;}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(249,115,22,0.5);}
+    .btn-outline{border:2px solid rgba(234,179,8,0.6);color:#EAB308;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.05em;transition:all 0.3s ease;cursor:pointer;}
+    .btn-outline:hover{background:rgba(234,179,8,0.1);border-color:#EAB308;transform:translateY(-2px);}
+
+    /* FAQ */
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s ease;}
+    .faq-answer.open{max-height:300px;}
+    .faq-item .faq-icon{transition:transform 0.3s ease;}
+    .faq-item.open .faq-icon{transform:rotate(45deg);}
+
+    /* Countdown */
+    .countdown-box{background:rgba(255,255,255,0.04);border:1px solid rgba(234,179,8,0.2);border-radius:12px;}
+
+    /* Gallery grid hover */
+    .gal-item{overflow:hidden;transition:transform 0.4s ease;}
+    .gal-item:hover{transform:scale(1.03);}
+    .gal-item .gal-overlay{opacity:0;transition:opacity 0.35s ease;}
+    .gal-item:hover .gal-overlay{opacity:1;}
+
+    /* Divider */
+    .section-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(234,179,8,0.3),transparent);}
+
+    /* Sponsor card */
+    .sponsor-card{filter:grayscale(1) brightness(0.6);transition:all 0.3s ease;cursor:pointer;}
+    .sponsor-card:hover{filter:grayscale(0) brightness(1);}
+
+    /* Mobile menu */
+    #mobile-menu{display:none;}
+    #mobile-menu.open{display:flex;}
+
+    /* RTL adjustments */
+    [dir="rtl"] .ml-auto{margin-left:unset;margin-right:auto;}
+
+    @media(prefers-reduced-motion:reduce){
+      .reveal,.reveal-left,.reveal-right{transition:none;opacity:1;transform:none;}
+      .hero-bg{animation:none;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center cursor-pointer">
+      <img src="logo.png" alt="VNFX Federation" class="h-14 w-auto object-contain" style="filter:drop-shadow(0 0 12px rgba(234,179,8,0.4));" />
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden lg:flex items-center gap-8 font-condensed font-600 text-sm tracking-widest uppercase text-neutral-400">
+      <a href="#about" class="hover:text-gold transition-colors duration-200 cursor-pointer">אודות</a>
+      <a href="#categories" class="hover:text-gold transition-colors duration-200 cursor-pointer">קטגוריות</a>
+      <a href="#why" class="hover:text-gold transition-colors duration-200 cursor-pointer">למה VNFX</a>
+      <a href="#event" class="hover:text-gold transition-colors duration-200 cursor-pointer">תחרויות</a>
+      <a href="#faq" class="hover:text-gold transition-colors duration-200 cursor-pointer">שאלות</a>
+      <a href="#contact" class="hover:text-gold transition-colors duration-200 cursor-pointer">צור קשר</a>
+    </div>
+
+    <!-- CTA + burger -->
+    <div class="flex items-center gap-4">
+      <a href="#event" class="hidden sm:block btn-primary px-5 py-2.5 rounded-lg text-sm font-condensed font-700 tracking-widest uppercase">הרשמה לתחרות</a>
+      <button id="burger-btn" class="lg:hidden text-neutral-300 p-2 cursor-pointer" aria-label="פתח תפריט">
+        <svg id="burger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="lg:hidden flex-col gap-1 pt-4 pb-6 px-4 glass mt-4 rounded-xl">
+    <a href="#about" class="block py-3 px-4 font-condensed font-600 text-sm tracking-widest uppercase text-neutral-300 hover:text-gold cursor-pointer border-b border-white/5">אודות</a>
+    <a href="#categories" class="block py-3 px-4 font-condensed font-600 text-sm tracking-widest uppercase text-neutral-300 hover:text-gold cursor-pointer border-b border-white/5">קטגוריות</a>
+    <a href="#why" class="block py-3 px-4 font-condensed font-600 text-sm tracking-widest uppercase text-neutral-300 hover:text-gold cursor-pointer border-b border-white/5">למה VNFX</a>
+    <a href="#event" class="block py-3 px-4 font-condensed font-600 text-sm tracking-widest uppercase text-neutral-300 hover:text-gold cursor-pointer border-b border-white/5">תחרויות</a>
+    <a href="#faq" class="block py-3 px-4 font-condensed font-600 text-sm tracking-widest uppercase text-neutral-300 hover:text-gold cursor-pointer border-b border-white/5">שאלות</a>
+    <a href="#contact" class="block py-3 px-4 font-condensed font-600 text-sm tracking-widest uppercase text-neutral-300 hover:text-gold cursor-pointer border-b border-white/5">צור קשר</a>
+    <a href="#event" class="block mt-3 btn-primary px-5 py-3 rounded-lg text-sm text-center font-condensed font-700 tracking-widest uppercase">הרשמה לתחרות</a>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO BANNER (slim)
+═══════════════════════════════════════════ -->
+<section id="hero" class="relative flex items-center justify-center overflow-hidden pt-28 pb-16 px-6 hero-bg">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse at 50% 60%,rgba(202,138,4,0.1) 0%,transparent 70%);"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-24" style="background:linear-gradient(to top,#0A0A0A,transparent);"></div>
+  </div>
+  <div class="relative z-10 max-w-5xl mx-auto text-center">
+    <div class="flex justify-center mb-6 reveal">
+      <img src="logo.png" alt="VNFX Federation" class="w-full max-w-xs sm:max-w-sm md:max-w-md object-contain"
+           style="filter:drop-shadow(0 0 50px rgba(234,179,8,0.5)) drop-shadow(0 0 100px rgba(202,138,4,0.2));" />
+    </div>
+    <h1 class="font-display text-[clamp(2rem,6vw,5.5rem)] leading-none tracking-[0.06em] text-gradient-white mb-2 reveal" style="transition-delay:0.15s">THE NEXT ERA OF</h1>
+    <h1 class="font-display text-[clamp(2rem,6vw,5.5rem)] leading-none tracking-[0.06em] text-gradient text-glow mb-6 reveal" style="transition-delay:0.25s">ISRAELI BODYBUILDING</h1>
+    <p class="font-body text-neutral-400 text-base mb-8 reveal" style="transition-delay:0.35s">קטגוריות טבעיות ופתוחות · שיפוט שקוף · פרסים · במה ברמה בינלאומית</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center reveal" style="transition-delay:0.45s">
+      <a href="#register" class="btn-primary px-10 py-4 rounded-xl text-lg font-condensed font-700 tracking-widest uppercase glow-fire text-center">הרשמה לתחרות</a>
+      <a href="#categories" class="btn-outline px-10 py-4 rounded-xl text-lg font-condensed font-600 tracking-widest uppercase text-center">צפה בקטגוריות</a>
+      <button onclick="openRegulations()" class="btn-outline px-10 py-4 rounded-xl text-lg font-condensed font-600 tracking-widest uppercase text-center" style="border-color:rgba(255,255,255,0.2);color:#aaa;">תקנון האיגוד</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ABOUT SECTION
+═══════════════════════════════════════════ -->
+<section id="about" class="py-28 px-6 relative">
+  <div class="section-divider mb-20"></div>
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-16 reveal">
+      <span class="font-condensed text-xs text-gold uppercase tracking-[0.3em] font-600">אודות האיגוד</span>
+      <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] text-white mt-3 leading-none">ABOUT <span class="text-gradient">VNFX</span></h2>
+      <p class="font-body text-neutral-400 text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+        VNFX Federation נולד מתוך חזון אחד: להעלות את ספורט פיתוח הגוף בישראל לרמה שהוא ראוי לה.
+      </p>
+    </div>
+
+    <!-- About cards grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <div class="glass rounded-2xl p-7 reveal cat-card" style="transition-delay:0.1s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 cat-icon" style="background:rgba(234,179,8,0.1);">
+          <svg class="w-6 h-6 text-gold cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 class="font-condensed text-xl font-700 text-white mb-2 tracking-wide">שילוב קטגוריות</h3>
+        <p class="font-body text-neutral-400 text-sm leading-relaxed">פלטפורמה אחת המאחדת מתחרים טבעיים ומתחרים פתוחים, עם הפרדה ברורה ומכבדת בין הקטגוריות.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass rounded-2xl p-7 reveal cat-card" style="transition-delay:0.2s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(249,115,22,0.1);">
+          <svg class="w-6 h-6 text-fire cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.66 0 3.22.45 4.55 1.23"/><path d="M15 3l3 3-3 3"/></svg>
+        </div>
+        <h3 class="font-condensed text-xl font-700 text-white mb-2 tracking-wide">סטנדרט שיפוט מקצועי</h3>
+        <p class="font-body text-neutral-400 text-sm leading-relaxed">שופטים מוסמכים, קריטריונים ברורים ושקופים. <strong class="text-fire">ניקוד לכל פוזה בנפרד</strong> מוצג בזמן אמת — שקיפות מלאה לכל מתחרה, ללא פשרות.</p>
+        <a href="#judging" class="inline-block mt-3 font-condensed text-xs text-fire uppercase tracking-widest hover:underline cursor-pointer">ראה את מערכת הניקוד &larr;</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass rounded-2xl p-7 reveal cat-card" style="transition-delay:0.3s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(234,179,8,0.1);">
+          <svg class="w-6 h-6 text-gold cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3 class="font-condensed text-xl font-700 text-white mb-2 tracking-wide">פרסים כספיים</h3>
+        <p class="font-body text-neutral-400 text-sm leading-relaxed">פרסים כספיים לכל קטגוריה — קטגוריות פתוחות עם פרסים גבוהים יותר. כי הסיכון הגדול יותר ראוי לתגמול גדול יותר.</p>
+        <button onclick="openPrizesModal()" class="inline-block mt-3 font-condensed text-xs text-gold uppercase tracking-widest hover:underline cursor-pointer">צפה בטבלת הפרסים &larr;</button>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="glass rounded-2xl p-7 reveal cat-card" style="transition-delay:0.4s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(249,115,22,0.1);">
+          <svg class="w-6 h-6 text-fire cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3 class="font-condensed text-xl font-700 text-white mb-2 tracking-wide">במה ברמה גבוהה</h3>
+        <p class="font-body text-neutral-400 text-sm leading-relaxed">תאורה, סאונד, צילום ואווירה — כולם ברמה שמתחרים ראויים לה. אתם שנים על הבמה, אנחנו נדאג שתזכרו אותה.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="glass rounded-2xl p-7 reveal cat-card" style="transition-delay:0.5s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(234,179,8,0.1);">
+          <svg class="w-6 h-6 text-gold cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3 class="font-condensed text-xl font-700 text-white mb-2 tracking-wide">שקיפות מלאה</h3>
+        <p class="font-body text-neutral-400 text-sm leading-relaxed">כל ציון לכל פוזה — גלוי ונגיש לכל מתחרה מיד בסיום השיפוט. לא תצאו בלי לדעת למה קיבלתם את הציון שקיבלתם.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="glass rounded-2xl p-7 reveal cat-card" style="transition-delay:0.6s">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(249,115,22,0.1);">
+          <svg class="w-6 h-6 text-fire cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="font-condensed text-xl font-700 text-white mb-2 tracking-wide">קהילה וחיבורים</h3>
+        <p class="font-body text-neutral-400 text-sm leading-relaxed">VNFX היא לא רק תחרות — היא קהילה. חיבורים, חשיפה, ומסע משותף לכולם שמגיעים לבמה.</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="section-divider mt-20"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CATEGORIES SECTION
+═══════════════════════════════════════════ -->
+<section id="categories" class="py-28 px-6 relative" style="background:linear-gradient(180deg,#0A0A0A 0%,#0d0d00 50%,#0A0A0A 100%);">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-16 reveal">
+      <span class="font-condensed text-xs text-gold uppercase tracking-[0.3em] font-600">הקטגוריות שלנו</span>
+      <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] text-white mt-3 leading-none">COMPETITION <span class="text-gradient">CATEGORIES</span></h2>
+      <p class="font-body text-neutral-400 text-lg mt-4 max-w-xl mx-auto">בחר את הקטגוריה שמתאימה לך — ובוא להוכיח את עצמך על הבמה</p>
+    </div>
+
+    <!-- NATURAL -->
+    <div class="mb-14">
+      <div class="flex items-center gap-4 mb-7 reveal">
+        <div class="h-px flex-1 bg-gradient-to-r from-transparent to-emerald-500/30"></div>
+        <span class="font-condensed text-sm font-700 tracking-[0.25em] uppercase text-emerald-400 glass px-5 py-2 rounded-full border border-emerald-500/20">קטגוריות טבעיות · NATURAL</span>
+        <div class="h-px flex-1 bg-gradient-to-l from-transparent to-emerald-500/30"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <div class="cat-card glass rounded-2xl p-6 text-center cursor-pointer border border-emerald-500/10 hover:border-emerald-400/30 reveal" style="transition-delay:0.1s">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background:rgba(52,211,153,0.1);">
+            <svg class="w-8 h-8 text-emerald-400 cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <div class="font-condensed text-sm font-700 text-emerald-400 tracking-widest uppercase mb-1">Natural</div>
+          <div class="font-condensed text-xl font-700 text-white">Men's Physique</div>
+          <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mt-2">Natural</div>
+        </div>
+
+        <div class="cat-card glass rounded-2xl p-6 text-center cursor-pointer border border-emerald-500/10 hover:border-emerald-400/30 reveal" style="transition-delay:0.2s">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background:rgba(52,211,153,0.1);">
+            <svg class="w-8 h-8 text-emerald-400 cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10z"/><path d="M8 12l2 2 4-4"/></svg>
+          </div>
+          <div class="font-condensed text-sm font-700 text-emerald-400 tracking-widest uppercase mb-1">Natural</div>
+          <div class="font-condensed text-xl font-700 text-white">Classic Physique</div>
+          <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mt-2">Natural</div>
+        </div>
+
+        <div class="cat-card glass rounded-2xl p-6 text-center cursor-pointer border border-emerald-500/10 hover:border-emerald-400/30 reveal" style="transition-delay:0.3s">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background:rgba(52,211,153,0.1);">
+            <svg class="w-8 h-8 text-emerald-400 cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </div>
+          <div class="font-condensed text-sm font-700 text-emerald-400 tracking-widest uppercase mb-1">Natural</div>
+          <div class="font-condensed text-xl font-700 text-white">Bodybuilding</div>
+          <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mt-2">Natural</div>
+        </div>
+
+        <div class="cat-card glass rounded-2xl p-6 text-center cursor-pointer border border-emerald-500/10 hover:border-emerald-400/30 reveal" style="transition-delay:0.4s">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background:rgba(52,211,153,0.1);">
+            <svg class="w-8 h-8 text-emerald-400 cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+          </div>
+          <div class="font-condensed text-sm font-700 text-emerald-400 tracking-widest uppercase mb-1">Natural</div>
+          <div class="font-condensed text-xl font-700 text-white">Bikini</div>
+          <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mt-2">Natural</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- OPEN -->
+    <div>
+      <div class="flex items-center gap-4 mb-7 reveal">
+        <div class="h-px flex-1 bg-gradient-to-r from-transparent to-gold/30"></div>
+        <span class="font-condensed text-sm font-700 tracking-[0.25em] uppercase text-gold glass-gold px-5 py-2 rounded-full">קטגוריות פתוחות · OPEN</span>
+        <div class="h-px flex-1 bg-gradient-to-l from-transparent to-gold/30"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+
+        <div class="cat-card glass-gold rounded-2xl p-6 text-center cursor-pointer reveal" style="transition-delay:0.1s">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background:rgba(202,138,4,0.15);">
+            <svg class="w-8 h-8 text-gold cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <div class="font-condensed text-sm font-700 text-gold tracking-widest uppercase mb-1">Open</div>
+          <div class="font-condensed text-lg font-700 text-white">Men's Physique</div>
+        </div>
+
+        <div class="cat-card glass-gold rounded-2xl p-6 text-center cursor-pointer reveal" style="transition-delay:0.2s">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background:rgba(202,138,4,0.15);">
+            <svg class="w-8 h-8 text-gold cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="font-condensed text-sm font-700 text-gold tracking-widest uppercase mb-1">Open</div>
+          <div class="font-condensed text-lg font-700 text-white">Classic Physique</div>
+        </div>
+
+        <div class="cat-card glass-gold rounded-2xl p-6 text-center cursor-pointer reveal" style="transition-delay:0.3s">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background:rgba(202,138,4,0.15);">
+            <svg class="w-8 h-8 text-gold cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </div>
+          <div class="font-condensed text-sm font-700 text-gold tracking-widest uppercase mb-1">Open</div>
+          <div class="font-condensed text-lg font-700 text-white">Bodybuilding</div>
+        </div>
+
+        <div class="cat-card glass-gold rounded-2xl p-6 text-center cursor-pointer reveal" style="transition-delay:0.4s">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background:rgba(202,138,4,0.15);">
+            <svg class="w-8 h-8 text-gold cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10z"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+          </div>
+          <div class="font-condensed text-sm font-700 text-gold tracking-widest uppercase mb-1">Open</div>
+          <div class="font-condensed text-lg font-700 text-white">Wellness</div>
+        </div>
+
+        <div class="cat-card glass-gold rounded-2xl p-6 text-center cursor-pointer reveal" style="transition-delay:0.5s">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background:rgba(202,138,4,0.15);">
+            <svg class="w-8 h-8 text-gold cat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="font-condensed text-sm font-700 text-gold tracking-widest uppercase mb-1">Open</div>
+          <div class="font-condensed text-lg font-700 text-white">Bikini</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     JUDGING / SCORING SYSTEM SECTION
+═══════════════════════════════════════════ -->
+<section id="judging" class="py-28 px-6" style="background:linear-gradient(180deg,#0A0A0A 0%,#07070f 50%,#0A0A0A 100%);">
+  <div class="section-divider mb-20"></div>
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center mb-16 reveal">
+      <span class="font-condensed text-xs text-fire uppercase tracking-[0.3em] font-600">שקיפות מלאה · ניקוד בזמן אמת</span>
+      <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] text-white mt-3 leading-none">SCORING <span class="text-gradient">SYSTEM</span></h2>
+      <p class="font-body text-neutral-400 text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+        ב-VNFX אין תיבות שחורות. כל פוזה מקבלת ציון נפרד — המתחרים רואים הכל.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+
+      <!-- Left: Poses list Classic/BB -->
+      <div class="reveal-right space-y-6">
+
+        <!-- Classic Physique poses -->
+        <div class="glass rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-5">
+            <h3 class="font-condensed text-lg font-700 text-white tracking-wide">פוזות חובה — Classic Physique</h3>
+            <span class="font-condensed text-xs text-gold uppercase tracking-widest glass-gold px-3 py-1 rounded-full">CLASSIC</span>
+          </div>
+          <ol class="space-y-2">
+            <li class="flex items-center gap-3"><span class="font-display text-gold text-lg w-6 flex-shrink-0">1</span><span class="font-condensed text-sm text-neutral-300">קדמי נינוח <span class="text-neutral-600">· Relaxed Front Quarter Turns</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-gold text-lg w-6 flex-shrink-0">2</span><span class="font-condensed text-sm text-neutral-300">ביסיפס כפול קדמי <span class="text-neutral-600">· Front Double Biceps</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-gold text-lg w-6 flex-shrink-0">3</span><span class="font-condensed text-sm text-neutral-300">חזה לצד ימין <span class="text-neutral-600">· Side Chest (Right)</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-gold text-lg w-6 flex-shrink-0">4</span><span class="font-condensed text-sm text-neutral-300">ביסיפס כפול אחורי <span class="text-neutral-600">· Back Double Biceps</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-gold text-lg w-6 flex-shrink-0">5</span><span class="font-condensed text-sm text-neutral-300">טריסיפס לצד שמאל <span class="text-neutral-600">· Side Triceps (Left)</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-gold text-lg w-6 flex-shrink-0">6</span><span class="font-condensed text-sm text-neutral-300">כסע ובטן קדמי <span class="text-neutral-600">· Front Abs & Thighs</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-gold text-lg w-6 flex-shrink-0">7</span><span class="font-condensed text-sm text-neutral-300">פוזה קלאסית חופשית <span class="text-neutral-600">· Classic Free Pose</span></span></li>
+          </ol>
+        </div>
+
+        <!-- Bodybuilding poses -->
+        <div class="glass rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-5">
+            <h3 class="font-condensed text-lg font-700 text-white tracking-wide">פוזות חובה — Bodybuilding</h3>
+            <span class="font-condensed text-xs text-fire uppercase tracking-widest glass px-3 py-1 rounded-full border border-fire/20">BB</span>
+          </div>
+          <ol class="space-y-2">
+            <li class="flex items-center gap-3"><span class="font-display text-fire text-lg w-6 flex-shrink-0">1</span><span class="font-condensed text-sm text-neutral-300">קדמי נינוח <span class="text-neutral-600">· Relaxed Front Quarter Turns</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-fire text-lg w-6 flex-shrink-0">2</span><span class="font-condensed text-sm text-neutral-300">ביסיפס כפול קדמי <span class="text-neutral-600">· Front Double Biceps</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-fire text-lg w-6 flex-shrink-0">3</span><span class="font-condensed text-sm text-neutral-300">חזה לצד ימין <span class="text-neutral-600">· Side Chest (Right)</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-fire text-lg w-6 flex-shrink-0">4</span><span class="font-condensed text-sm text-neutral-300">ביסיפס כפול אחורי <span class="text-neutral-600">· Back Double Biceps</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-fire text-lg w-6 flex-shrink-0">5</span><span class="font-condensed text-sm text-neutral-300">טריסיפס לצד שמאל <span class="text-neutral-600">· Side Triceps (Left)</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-fire text-lg w-6 flex-shrink-0">6</span><span class="font-condensed text-sm text-neutral-300">כסע ובטן קדמי <span class="text-neutral-600">· Front Abs & Thighs</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-fire text-lg w-6 flex-shrink-0">7</span><span class="font-condensed text-sm text-neutral-300">מוסט מוסקולאר <span class="text-neutral-600">· Most Muscular</span></span></li>
+            <li class="flex items-center gap-3"><span class="font-display text-fire text-lg w-6 flex-shrink-0">8</span><span class="font-condensed text-sm text-neutral-300">פוזה חופשית <span class="text-neutral-600">· Free Pose (60 sec)</span></span></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Right: Judges + Scoring rules + VIP -->
+      <div class="space-y-6 reveal-left">
+
+        <!-- Judges panel -->
+        <div class="glass rounded-2xl p-6">
+          <h3 class="font-condensed text-lg font-700 text-white tracking-wide mb-5">פאנל השופטים</h3>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3 border-b border-white/5 pb-3">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(234,179,8,0.12);">
+                <svg class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="flex-1">
+                <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest">שופט ראשי · משקל פתוח</div>
+                <div class="font-condensed text-base font-700 text-white mt-0.5">יעודכן בקרוב</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 border-b border-white/5 pb-3">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(249,115,22,0.12);">
+                <svg class="w-4 h-4 text-fire" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="flex-1">
+                <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest">שופט ראשי · ביקיני</div>
+                <div class="font-condensed text-base font-700 text-white mt-0.5">יעודכן בקרוב</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 border-b border-white/5 pb-3">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(234,179,8,0.12);">
+                <svg class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="flex-1">
+                <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest">שופט ראשי · קלאסיק פיזיק</div>
+                <div class="font-condensed text-base font-700 text-white mt-0.5">יעודכן בקרוב</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 border-b border-white/5 pb-3">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(249,115,22,0.12);">
+                <svg class="w-4 h-4 text-fire" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="flex-1">
+                <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest">שופט ראשי · מנס פיזיק</div>
+                <div class="font-condensed text-base font-700 text-white mt-0.5">יעודכן בקרוב</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(251,191,36,0.15);">
+                <svg class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div class="flex-1">
+                <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest">שופט פוזינג</div>
+                <div class="font-condensed text-base font-700 text-white mt-0.5">יעודכן בקרוב</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scoring rules -->
+        <div class="glass rounded-xl p-6 cat-card cursor-default">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(249,115,22,0.12);">
+              <svg class="w-5 h-5 text-fire" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div>
+              <div class="font-condensed font-700 text-white text-base mb-1">ניקוד גלוי לכל פוזה</div>
+              <div class="font-body text-neutral-400 text-sm leading-relaxed">5 שופטים · ציון לכל פוזה בנפרד · הגבוה והנמוך מוסרים · הציונים מוצגים למתחרה מיד בסיום.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VIP Voting -->
+        <div class="rounded-xl p-6 cat-card cursor-default border border-amber-400/30" style="background:linear-gradient(135deg,rgba(251,191,36,0.07),rgba(249,115,22,0.05));">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(251,191,36,0.18);">
+              <svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <div class="font-condensed font-700 text-amber-300 text-base">VIP AUDIENCE VOTING</div>
+                <span class="font-condensed text-xs text-amber-400/70 uppercase tracking-widest glass px-2 py-0.5 rounded-full border border-amber-400/20">חדש</span>
+              </div>
+              <div class="font-body text-neutral-400 text-sm leading-relaxed mb-3">צופי VIP מנקדים דרך האפליקציה — עד <strong class="text-amber-300">15%</strong> מהציון הסופי. קהל שמשפיע, מתחרים שמרגישים.</div>
+              <div class="flex flex-wrap gap-2">
+                <span class="font-condensed text-xs text-amber-400/60 uppercase tracking-widest glass px-3 py-1 rounded-full">כרטיס VIP בלבד</span>
+                <span class="font-condensed text-xs text-amber-400/60 uppercase tracking-widest glass px-3 py-1 rounded-full">15% מהציון</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="section-divider mt-20"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     WHY US SECTION
+═══════════════════════════════════════════ -->
+<section id="why" class="py-28 px-6">
+  <div class="section-divider mb-20"></div>
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: text -->
+      <div class="reveal-right">
+        <span class="font-condensed text-xs text-gold uppercase tracking-[0.3em] font-600">למה לבחור בנו</span>
+        <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] text-white mt-3 leading-none">WHY <span class="text-gradient">VNFX?</span></h2>
+        <p class="font-body text-neutral-400 text-lg mt-5 leading-relaxed">
+          כי אתם מגיעים לפלטפורמה שמכבדת את ההשקעה שלכם. כאן לא מבצעים פשרות — לא בבמה, לא בשיפוט, לא בניקוד, ולא בחוויה.
+        </p>
+        <div class="mt-8">
+          <a href="#event" class="btn-primary px-8 py-3.5 rounded-xl text-base font-condensed font-700 tracking-widest uppercase inline-block">הצטרפו אלינו</a>
+        </div>
+      </div>
+
+      <!-- Right: benefits grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 reveal-left">
+
+        <div class="glass rounded-xl p-5 flex gap-4 items-start cat-card cursor-default">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(234,179,8,0.12);">
+            <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          </div>
+          <div>
+            <div class="font-condensed font-700 text-white text-base">במה מקצועית</div>
+            <div class="font-body text-neutral-500 text-xs mt-1 leading-relaxed">הפקה מלאה, תאורת שיפוט, סאונד וצילום ברמה גבוהה</div>
+          </div>
+        </div>
+
+        <div class="glass rounded-xl p-5 flex gap-4 items-start cat-card cursor-default">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(249,115,22,0.12);">
+            <svg class="w-5 h-5 text-fire" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div>
+            <div class="font-condensed font-700 text-white text-base cursor-pointer hover:text-gold transition-colors" onclick="openPrizesModal()">פרסים כספיים ←</div>
+            <div class="font-body text-neutral-500 text-xs mt-1 leading-relaxed">קטגוריות פתוחות — פרסים גבוהים יותר. לחץ לטבלת הפרסים המלאה.</div>
+          </div>
+        </div>
+
+        <div class="glass rounded-xl p-5 flex gap-4 items-start cat-card cursor-default">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(234,179,8,0.12);">
+            <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M15 10l-4 4l6 6l4-16l-18 7l4 2l2 6l3-4"/></svg>
+          </div>
+          <div>
+            <div class="font-condensed font-700 text-white text-base">חשיפה ומדיה</div>
+            <div class="font-body text-neutral-500 text-xs mt-1 leading-relaxed">כיסוי מלא ברשתות חברתיות, צלמים מקצועיים ביום התחרות</div>
+          </div>
+        </div>
+
+        <div class="glass rounded-xl p-5 flex gap-4 items-start cat-card cursor-default">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(249,115,22,0.12);">
+            <svg class="w-5 h-5 text-fire" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <div class="font-condensed font-700 text-white text-base">הפקה ברמה גבוהה</div>
+            <div class="font-body text-neutral-500 text-xs mt-1 leading-relaxed">חוויית מתחרה שלמה — מהרשמה ועד לעלייה על הבמה</div>
+          </div>
+        </div>
+
+        <div class="glass rounded-xl p-5 flex gap-4 items-start cat-card cursor-default">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(234,179,8,0.12);">
+            <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div>
+            <div class="font-condensed font-700 text-white text-base">שיפוט מקצועי</div>
+            <div class="font-body text-neutral-500 text-xs mt-1 leading-relaxed">שופטים מוסמכים עם ניסיון בינלאומי ופרוטוקול ברור</div>
+          </div>
+        </div>
+
+        <div class="glass rounded-xl p-5 flex gap-4 items-start cat-card cursor-default">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(249,115,22,0.12);">
+            <svg class="w-5 h-5 text-fire" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <div class="font-condensed font-700 text-white text-base">צילום מקצועי</div>
+            <div class="font-body text-neutral-500 text-xs mt-1 leading-relaxed">תמונות ווידאו מקצועיים לכל מתחרה, גביעים ומדליות</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="section-divider mt-20"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     GALLERY SECTION
+═══════════════════════════════════════════ -->
+<section id="gallery" class="py-28 px-6" style="background:linear-gradient(180deg,#0A0A0A 0%,#0d0600 50%,#0A0A0A 100%);">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center mb-14 reveal">
+      <span class="font-condensed text-xs text-gold uppercase tracking-[0.3em] font-600">גלריה</span>
+      <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] text-white mt-3 leading-none">THE <span class="text-gradient">STAGE</span></h2>
+    </div>
+
+    <!-- Cinematic gallery grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 reveal">
+
+      <!-- Large item -->
+      <div class="col-span-2 row-span-2 gal-item rounded-2xl relative overflow-hidden cursor-pointer" style="height:380px;background:linear-gradient(135deg,#1a0d00,#2d1800,#3d2200);">
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <svg class="w-12 h-12 text-gold/40 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          <span class="font-condensed text-xs text-neutral-600 uppercase tracking-widest">Stage Highlights</span>
+        </div>
+        <div class="gal-overlay absolute inset-0 flex items-end p-6" style="background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);">
+          <span class="font-condensed font-700 text-white text-lg tracking-widest uppercase">Pump Up & Stage</span>
+        </div>
+      </div>
+
+      <div class="gal-item rounded-2xl relative overflow-hidden cursor-pointer" style="height:182px;background:linear-gradient(135deg,#0d1a00,#162800,#1f3600);">
+        <div class="absolute inset-0 flex items-center justify-center"><svg class="w-8 h-8 text-emerald-500/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg></div>
+        <div class="gal-overlay absolute inset-0 flex items-end p-4" style="background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);"><span class="font-condensed text-sm font-700 text-white uppercase tracking-widest">Natural Division</span></div>
+      </div>
+
+      <div class="gal-item rounded-2xl relative overflow-hidden cursor-pointer" style="height:182px;background:linear-gradient(135deg,#1a0000,#2d0a00,#3d1400);">
+        <div class="absolute inset-0 flex items-center justify-center"><svg class="w-8 h-8 text-fire/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <div class="gal-overlay absolute inset-0 flex items-end p-4" style="background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);"><span class="font-condensed text-sm font-700 text-white uppercase tracking-widest">Open Division</span></div>
+      </div>
+
+      <div class="gal-item rounded-2xl relative overflow-hidden cursor-pointer" style="height:182px;background:linear-gradient(135deg,#001a1a,#002828,#003636);">
+        <div class="absolute inset-0 flex items-center justify-center"><svg class="w-8 h-8 text-cyan-500/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
+        <div class="gal-overlay absolute inset-0 flex items-end p-4" style="background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);"><span class="font-condensed text-sm font-700 text-white uppercase tracking-widest">Backstage</span></div>
+      </div>
+
+      <div class="gal-item rounded-2xl relative overflow-hidden cursor-pointer" style="height:182px;background:linear-gradient(135deg,#1a001a,#2d002d,#3d003d);">
+        <div class="absolute inset-0 flex items-center justify-center"><svg class="w-8 h-8 text-purple-500/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="gal-overlay absolute inset-0 flex items-end p-4" style="background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);"><span class="font-condensed text-sm font-700 text-white uppercase tracking-widest">Medals & Trophies</span></div>
+      </div>
+
+      <div class="col-span-2 gal-item rounded-2xl relative overflow-hidden cursor-pointer" style="height:182px;background:linear-gradient(135deg,#0a0a1a,#141428,#1a1a36);">
+        <div class="absolute inset-0 flex items-center justify-center gap-4">
+          <svg class="w-8 h-8 text-gold/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="gal-overlay absolute inset-0 flex items-end p-4" style="background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);"><span class="font-condensed text-sm font-700 text-white uppercase tracking-widest">קהל ותמיכה</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS / COMMUNITY REVIEWS SECTION
+═══════════════════════════════════════════ -->
+<section id="testimonials" class="py-28 px-6">
+  <div class="section-divider mb-20"></div>
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-14 reveal">
+      <span class="font-condensed text-xs text-gold uppercase tracking-[0.3em] font-600">מה אומרים עלינו</span>
+      <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] text-white mt-3 leading-none">COMMUNITY <span class="text-gradient">REVIEWS</span></h2>
+      <p class="font-body text-neutral-400 text-lg mt-4">כל ביקורת — אמיתית. ממתחרים, מאמנים וקהל שהיו שם.</p>
+    </div>
+
+    <!-- Reviews display area -->
+    <div id="reviews-list" class="space-y-4 mb-10">
+      <!-- Empty state -->
+      <div id="reviews-empty" class="glass rounded-2xl p-12 text-center">
+        <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background:rgba(234,179,8,0.08);">
+          <svg class="w-8 h-8 text-gold/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </div>
+        <p class="font-condensed text-neutral-600 text-base uppercase tracking-widest">עדיין אין ביקורות — היה הראשון לשתף!</p>
+      </div>
+    </div>
+
+    <!-- Review form -->
+    <div class="glass-gold rounded-2xl p-8 reveal">
+      <h3 class="font-condensed text-xl font-700 text-white mb-2 tracking-wide">השאר ביקורת</h3>
+      <p class="font-body text-neutral-500 text-sm mb-6">מתחרה? מאמן? צופה? כולם מוזמנים לשתף.</p>
+      <form id="review-form" class="space-y-5" onsubmit="submitReview(event)">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="font-condensed text-xs text-neutral-500 uppercase tracking-widest block mb-2">שם מלא *</label>
+            <input id="r-name" type="text" placeholder="ישראל ישראלי" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-body text-sm outline-none focus:border-gold/40 transition-all duration-200 placeholder-neutral-600" />
+          </div>
+          <div>
+            <label class="font-condensed text-xs text-neutral-500 uppercase tracking-widest block mb-2">תפקיד</label>
+            <select id="r-role" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-body text-sm outline-none focus:border-gold/40 transition-all duration-200 cursor-pointer" style="background-color:#111;">
+              <option value="מתחרה">מתחרה</option>
+              <option value="מאמן">מאמן / מאמנת</option>
+              <option value="צופה">צופה / קהל</option>
+              <option value="שופט">שופט</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Star rating -->
+        <div>
+          <label class="font-condensed text-xs text-neutral-500 uppercase tracking-widest block mb-3">דירוג *</label>
+          <div id="star-rating" class="flex gap-2 flex-row-reverse justify-end" dir="ltr">
+            <input type="radio" id="s5" name="rating" value="5" class="hidden" required /><label for="s5" class="star-label text-3xl text-neutral-700 cursor-pointer transition-colors duration-150 select-none" data-v="5">&#9733;</label>
+            <input type="radio" id="s4" name="rating" value="4" class="hidden" /><label for="s4" class="star-label text-3xl text-neutral-700 cursor-pointer transition-colors duration-150 select-none" data-v="4">&#9733;</label>
+            <input type="radio" id="s3" name="rating" value="3" class="hidden" /><label for="s3" class="star-label text-3xl text-neutral-700 cursor-pointer transition-colors duration-150 select-none" data-v="3">&#9733;</label>
+            <input type="radio" id="s2" name="rating" value="2" class="hidden" /><label for="s2" class="star-label text-3xl text-neutral-700 cursor-pointer transition-colors duration-150 select-none" data-v="2">&#9733;</label>
+            <input type="radio" id="s1" name="rating" value="1" class="hidden" /><label for="s1" class="star-label text-3xl text-neutral-700 cursor-pointer transition-colors duration-150 select-none" data-v="1">&#9733;</label>
+          </div>
+        </div>
+
+        <div>
+          <label class="font-condensed text-xs text-neutral-500 uppercase tracking-widest block mb-2">ביקורת *</label>
+          <textarea id="r-text" rows="4" placeholder="שתף את החוויה שלך..." required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-body text-sm outline-none focus:border-gold/40 transition-all duration-200 placeholder-neutral-600 resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary px-8 py-3.5 rounded-xl text-base font-condensed font-700 tracking-widest uppercase">פרסם ביקורת</button>
+      </form>
+    </div>
+  </div>
+  <div class="section-divider mt-20"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     EVENT SECTION + COUNTDOWN
+═══════════════════════════════════════════ -->
+<section id="event" class="py-28 px-6 relative" style="background:linear-gradient(180deg,#0A0A0A 0%,#0d0900 50%,#0A0A0A 100%);">
+  <div class="max-w-5xl mx-auto text-center">
+
+    <div class="reveal">
+      <span class="font-condensed text-xs text-gold uppercase tracking-[0.3em] font-600">תחרות קרובה</span>
+      <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] text-white mt-3 leading-none">NEXT <span class="text-gradient">EVENT</span></h2>
+    </div>
+
+    <!-- Event card -->
+    <div class="glass-gold rounded-3xl p-10 mt-12 glow-gold reveal">
+
+      <!-- Event details -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-xl flex items-center justify-center mb-3" style="background:rgba(234,179,8,0.15);">
+            <svg class="w-6 h-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mb-1">תאריך</div>
+          <div class="font-condensed text-2xl font-700 text-white">28 אוקטובר 2026</div>
+          <div class="font-condensed text-sm text-gold">רביעי</div>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-xl flex items-center justify-center mb-3" style="background:rgba(234,179,8,0.15);">
+            <svg class="w-6 h-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mb-1">מיקום</div>
+          <div class="font-condensed text-2xl font-700 text-white">Tel Aviv</div>
+          <div class="font-condensed text-sm text-gold">Expo Convention Center</div>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 mx-auto rounded-xl flex items-center justify-center mb-3" style="background:rgba(234,179,8,0.15);">
+            <svg class="w-6 h-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mb-1">שעות</div>
+          <div class="font-condensed text-2xl font-700 text-white">10:00 – 22:00</div>
+          <div class="font-condensed text-sm text-gold">רישום מ-09:00</div>
+        </div>
+      </div>
+
+      <!-- Countdown -->
+      <div class="mb-10">
+        <div class="font-condensed text-xs text-neutral-500 uppercase tracking-[0.3em] mb-5">ספירה לאחור לתחרות</div>
+        <div class="flex justify-center gap-4 flex-wrap" id="countdown">
+          <div class="countdown-box px-6 py-4 text-center min-w-[80px]">
+            <div id="cd-days" class="font-display text-5xl text-gradient leading-none">--</div>
+            <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mt-1">ימים</div>
+          </div>
+          <div class="countdown-box px-6 py-4 text-center min-w-[80px]">
+            <div id="cd-hours" class="font-display text-5xl text-gradient leading-none">--</div>
+            <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mt-1">שעות</div>
+          </div>
+          <div class="countdown-box px-6 py-4 text-center min-w-[80px]">
+            <div id="cd-mins" class="font-display text-5xl text-gradient leading-none">--</div>
+            <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mt-1">דקות</div>
+          </div>
+          <div class="countdown-box px-6 py-4 text-center min-w-[80px]">
+            <div id="cd-secs" class="font-display text-5xl text-gradient leading-none">--</div>
+            <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mt-1">שניות</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#contact" class="btn-primary px-12 py-4 rounded-xl text-lg font-condensed font-700 tracking-widest uppercase inline-block glow-fire">הרשם עכשיו לתחרות</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     REGISTRATION & PRICING SECTION
+═══════════════════════════════════════════ -->
+<section id="register" class="py-28 px-6" style="background:linear-gradient(180deg,#0A0A0A 0%,#080b00 50%,#0A0A0A 100%);">
+  <div class="section-divider mb-20"></div>
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-14 reveal">
+      <span class="font-condensed text-xs text-gold uppercase tracking-[0.3em] font-600">הרשמה לתחרות</span>
+      <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] text-white mt-3 leading-none">REGISTRATION <span class="text-gradient">& FEES</span></h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+      <!-- Without tanning -->
+      <div class="glass rounded-2xl p-7 reveal cat-card cursor-default" style="transition-delay:0.1s">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(255,255,255,0.06);">
+            <svg class="w-5 h-5 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+          </div>
+          <span class="font-condensed font-700 text-white text-lg uppercase tracking-widest">ללא צביעה</span>
+        </div>
+        <div class="font-display text-6xl text-gradient leading-none mb-2">₪800</div>
+        <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mb-4">הרשמה מלאה</div>
+        <div class="glass rounded-xl px-4 py-3">
+          <div class="font-condensed text-sm text-gold">הרשמה מוקדמת</div>
+          <div class="font-body text-neutral-400 text-xs mt-1">סכום ההרשמה המוקדמת מקוזז מהמחיר הסופי בעת ההרשמה הרשמית</div>
+        </div>
+      </div>
+
+      <!-- With tanning -->
+      <div class="rounded-2xl p-7 reveal cat-card cursor-default glow-gold" style="background:linear-gradient(135deg,rgba(202,138,4,0.08),rgba(249,115,22,0.05));border:1px solid rgba(234,179,8,0.25);transition-delay:0.2s">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(234,179,8,0.15);">
+            <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          </div>
+          <span class="font-condensed font-700 text-white text-lg uppercase tracking-widest">עם צביעה</span>
+          <span class="font-condensed text-xs text-gold uppercase tracking-widest glass-gold px-2 py-0.5 rounded-full">מומלץ</span>
+        </div>
+        <div class="font-display text-6xl text-gradient leading-none mb-2">₪1,100</div>
+        <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mb-4">כולל צביעה מקצועית</div>
+        <div class="glass rounded-xl px-4 py-3">
+          <div class="font-condensed text-sm text-gold">הרשמה מוקדמת</div>
+          <div class="font-body text-neutral-400 text-xs mt-1">סכום ההרשמה המוקדמת מקוזז מהמחיר הסופי בעת ההרשמה הרשמית</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Natural competitor mandatory section -->
+    <div class="rounded-2xl p-7 reveal mb-8" style="background:linear-gradient(135deg,rgba(52,211,153,0.06),rgba(16,185,129,0.03));border:1px solid rgba(52,211,153,0.2);">
+      <div class="flex items-start gap-5">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(52,211,153,0.12);">
+          <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <div class="flex-1">
+          <div class="flex flex-wrap items-center gap-3 mb-3">
+            <h3 class="font-condensed text-xl font-700 text-emerald-400 tracking-wide">חובה למתחרים טבעיים</h3>
+            <div class="font-display text-2xl text-emerald-400">+₪200</div>
+          </div>
+          <div class="space-y-2 mb-5">
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/></svg>
+              <span class="font-body text-neutral-300 text-sm">דמי אימות טבעיות — ₪200 נוספים על מחיר ההרשמה</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/></svg>
+              <span class="font-body text-neutral-300 text-sm"><strong class="text-white">בדיקות דם ראשונות</strong> — לא יאוחר מ-3 חודשים לפני תאריך התחרות</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/></svg>
+              <span class="font-body text-neutral-300 text-sm"><strong class="text-white">בדיקות דם שניות</strong> — לא יאוחר משבוע לפני עליה על הבמה (מחודש התחרות)</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/></svg>
+              <span class="font-body text-neutral-300 text-sm">יש להגיש את שתי הבדיקות לאיגוד לאימות לפני יום התחרות</span>
+            </div>
+          </div>
+          <button onclick="openBloodTests()" class="btn-outline px-6 py-2.5 rounded-lg text-sm font-condensed font-700 tracking-widest uppercase" style="border-color:rgba(52,211,153,0.4);color:#34d399;">
+            צפה ברשימת בדיקות הדם הנדרשות
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Best of Best / אלוף האלופים -->
+    <div class="glass-gold rounded-2xl p-7 reveal glow-gold">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <div>
+          <div class="font-condensed text-xs text-gold uppercase tracking-[0.3em] mb-1">פרסים כספיים</div>
+          <h3 class="font-display text-3xl text-gradient">BEST OF BEST · אלוף האלופים</h3>
+        </div>
+        <div class="text-left">
+          <div class="font-display text-5xl text-gradient leading-none">₪5,000</div>
+          <div class="font-condensed text-xs text-neutral-500 uppercase tracking-widest mt-1">פרס מזומן לאלוף</div>
+        </div>
+      </div>
+      <p class="font-body text-neutral-400 text-sm leading-relaxed mb-4">
+        בסיום כל הקטגוריות, מנצחי כל חלוקה עולים לבמה למקצה מיוחד — <strong class="text-white">אלוף האלופים</strong>.
+        השופטים בוחרים את המתחרה הטוב ביותר מכל הקטגוריות, והזוכה מקבל <strong class="text-gold">פרס כספי מיוחד</strong>.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        <span class="font-condensed text-xs text-gold/70 uppercase tracking-widest glass px-3 py-1.5 rounded-full">מקצה מיוחד בסיום</span>
+        <span class="font-condensed text-xs text-gold/70 uppercase tracking-widest glass px-3 py-1.5 rounded-full">כל מנצחי הקטגוריות</span>
+        <span class="font-condensed text-xs text-gold/70 uppercase tracking-widest glass px-3 py-1.5 rounded-full">פרס מזומן ₪5,000</span>
+        <span class="font-condensed text-xs text-gold/70 uppercase tracking-widest glass px-3 py-1.5 rounded-full">גביע + תואר</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="section-divider mt-20"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FAQ SECTION
+═══════════════════════════════════════════ -->
+<section id="faq" class="py-28 px-6">
+  <div class="section-divider mb-20"></div>
+  <div class="max-w-3xl mx-auto">
+
+    <div class="text-center mb-14 reveal">
+      <span class="font-condensed text-xs text-gold uppercase tracking-[0.3em] font-600">שאלות ותשובות</span>
+      <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] text-white mt-3 leading-none">FAQ</h2>
+    </div>
+
+    <div class="space-y-3 reveal">
+
+      <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <span class="font-condensed text-lg font-600 text-white">איך נרשמים לתחרות?</span>
+          <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-neutral-400 text-sm leading-relaxed pb-6">ניתן להירשם דרך טופס ההרשמה באתר. לאחר מילוי הטופס תקבלו אישור במייל עם כל הפרטים, לרבות תשלום דמי ההשתתפות ודרישות הלבוש לכל קטגוריה.</p>
+        </div>
+      </div>
+
+      <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <span class="font-condensed text-lg font-600 text-white">האם יש פוליגרף לקטגוריות הטבעיות?</span>
+          <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-neutral-400 text-sm leading-relaxed pb-6">כן. כל המתחרים בקטגוריות הטבעיות נדרשים לעבור בדיקת פוליגרף. אנו מחויבים לשמירה על שלמות הקטגוריה הטבעית ולהגינות בין כל המתחרים.</p>
+        </div>
+      </div>
+
+      <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <span class="font-condensed text-lg font-600 text-white">האם יש הפרדה בין קטגוריות טבעיות לפתוחות?</span>
+          <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-neutral-400 text-sm leading-relaxed pb-6">בהחלט. הקטגוריות הטבעיות והפתוחות מופרדות לחלוטין — הן בזמני העלייה לבמה, הן בשיפוט והן בפרסים. כל מתחרה מתחרה מול מתחרים עם אותם כללים בדיוק.</p>
+        </div>
+      </div>
+
+      <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <span class="font-condensed text-lg font-600 text-white">איך עובד השיפוט?</span>
+          <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-neutral-400 text-sm leading-relaxed pb-6">השיפוט מתבצע על ידי פאנל של שופטים מוסמכים. כל שופט מדרג את המתחרים על פי קריטריונים ברורים ומפורסמים מראש — שרירים, יחס גוף, סימטריה, הצגה ונוכחות בימתית. התוצאות מחושבות על ידי ועדה מרכזית שקופה.</p>
+        </div>
+      </div>
+
+      <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <span class="font-condensed text-lg font-600 text-white">האם יש פרסים כספיים?</span>
+          <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-neutral-400 text-sm leading-relaxed pb-6">כן! הזוכים במקום הראשון בכל קטגוריה מקבלים פרס כספי. בנוסף, כל המתחרים מקבלים גביע, מדליה, ותעודת הכרה. סכומי הפרסים מפורסמים לפני כל תחרות.</p>
+        </div>
+      </div>
+
+      <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <span class="font-condensed text-lg font-600 text-white">מה הגיל המינימלי להשתתפות?</span>
+          <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-answer px-6">
+          <p class="font-body text-neutral-400 text-sm leading-relaxed pb-6">גיל 18 ומעלה. לגילאי 16–17 נדרש אישור הורים בכתב. ישנן קטגוריות Junior מיוחדות לגילאי 16–23 בתחרויות מסוימות.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="section-divider mt-20"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FINAL CTA SECTION
+═══════════════════════════════════════════ -->
+<section class="py-32 px-6 relative overflow-hidden" style="background:linear-gradient(135deg,#0d0700 0%,#1a0d00 30%,#0d0700 70%,#0a0a0a 100%);">
+
+  <!-- Background glow -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full opacity-20" style="background:radial-gradient(circle,#CA8A04,transparent 70%);filter:blur(60px);"></div>
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto text-center reveal">
+    <span class="font-condensed text-xs text-gold uppercase tracking-[0.3em] font-600 mb-6 block">הצעד הבא שלך</span>
+    <h2 class="font-display text-[clamp(3rem,8vw,7rem)] text-white leading-none mb-4 text-gradient-white">
+      READY TO STEP
+    </h2>
+    <h2 class="font-display text-[clamp(3rem,8vw,7rem)] leading-none mb-8 text-gradient text-glow">
+      ON STAGE?
+    </h2>
+    <p class="font-body text-neutral-400 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+      הבמה מחכה לך. הזמן שלך הגיע. הצטרפו לאיגוד שמאמין שישראל ראויה לסטנדרד בינלאומי.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-5 justify-center">
+      <a href="#contact" class="btn-primary px-14 py-5 rounded-xl text-xl font-condensed font-700 tracking-widest uppercase glow-fire">
+        הרשם עכשיו
+      </a>
+      <a href="#categories" class="btn-outline px-14 py-5 rounded-xl text-xl font-condensed font-600 tracking-widest uppercase">
+        צפה בקטגוריות
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CONTACT SECTION
+═══════════════════════════════════════════ -->
+<section id="contact" class="py-28 px-6">
+  <div class="section-divider mb-20"></div>
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Left -->
+      <div class="reveal-right">
+        <!-- Logo watermark -->
+        <div class="flex justify-center mb-6">
+          <img src="logo.png" alt="VNFX" class="w-48 opacity-80 object-contain" style="filter:drop-shadow(0 0 20px rgba(234,179,8,0.3));" />
+        </div>
+        <span class="font-condensed text-xs text-gold uppercase tracking-[0.3em] font-600">צור קשר</span>
+        <h2 class="font-display text-[clamp(2rem,5vw,4rem)] text-white mt-3 leading-none">GET IN <span class="text-gradient">TOUCH</span></h2>
+        <p class="font-body text-neutral-400 text-lg mt-5 leading-relaxed mb-8">
+          יש שאלות? רוצה להירשם? מעוניין בשיתוף פעולה? אנחנו כאן בשבילך.
+        </p>
+
+        <!-- Contact details -->
+        <div class="space-y-5">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(234,179,8,0.1);">
+              <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <span class="font-body text-neutral-300">halelsheli@gmail.com</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(234,179,8,0.1);">
+              <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <span class="font-body text-neutral-300">058-693-1163</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(234,179,8,0.1);">
+              <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <span class="font-body text-neutral-300">תל אביב, ישראל</span>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div class="flex gap-4 mt-10">
+          <a href="#" class="w-11 h-11 glass rounded-xl flex items-center justify-center hover:border-gold/40 transition-all duration-200 cursor-pointer group" aria-label="Instagram">
+            <svg class="w-5 h-5 text-neutral-400 group-hover:text-gold transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="w-11 h-11 glass rounded-xl flex items-center justify-center hover:border-gold/40 transition-all duration-200 cursor-pointer group" aria-label="Facebook">
+            <svg class="w-5 h-5 text-neutral-400 group-hover:text-gold transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" class="w-11 h-11 glass rounded-xl flex items-center justify-center hover:border-gold/40 transition-all duration-200 cursor-pointer group" aria-label="YouTube">
+            <svg class="w-5 h-5 text-neutral-400 group-hover:text-gold transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+          <a href="#" class="w-11 h-11 glass rounded-xl flex items-center justify-center hover:border-gold/40 transition-all duration-200 cursor-pointer group" aria-label="TikTok">
+            <svg class="w-5 h-5 text-neutral-400 group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34l-.03-8.05a8.26 8.26 0 004.82 1.55V5.36a4.85 4.85 0 01-1.02-.67z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Contact form -->
+      <div class="glass rounded-2xl p-8 reveal-left">
+        <h3 class="font-condensed text-2xl font-700 text-white mb-6 tracking-wide">שלח לנו הודעה</h3>
+        <form class="space-y-5" onsubmit="handleSubmit(event)">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="font-condensed text-xs text-neutral-500 uppercase tracking-widest block mb-2" for="fname">שם פרטי</label>
+              <input id="fname" type="text" placeholder="ישראל" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-body text-sm outline-none focus:border-gold/40 focus:bg-white/8 transition-all duration-200 placeholder-neutral-600" required />
+            </div>
+            <div>
+              <label class="font-condensed text-xs text-neutral-500 uppercase tracking-widest block mb-2" for="lname">שם משפחה</label>
+              <input id="lname" type="text" placeholder="ישראלי" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-body text-sm outline-none focus:border-gold/40 transition-all duration-200 placeholder-neutral-600" required />
+            </div>
+          </div>
+          <div>
+            <label class="font-condensed text-xs text-neutral-500 uppercase tracking-widest block mb-2" for="email">כתובת מייל</label>
+            <input id="email" type="email" placeholder="israel@example.com" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-body text-sm outline-none focus:border-gold/40 transition-all duration-200 placeholder-neutral-600" required />
+          </div>
+          <div>
+            <label class="font-condensed text-xs text-neutral-500 uppercase tracking-widest block mb-2" for="topic">נושא</label>
+            <select id="topic" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-body text-sm outline-none focus:border-gold/40 transition-all duration-200 cursor-pointer" style="background-color:#111;">
+              <option value="register">הרשמה לתחרות</option>
+              <option value="info">מידע כללי</option>
+              <option value="sponsor">חסות ושותפות</option>
+              <option value="media">מדיה וצילום</option>
+              <option value="other">אחר</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-condensed text-xs text-neutral-500 uppercase tracking-widest block mb-2" for="msg">הודעה</label>
+            <textarea id="msg" rows="4" placeholder="כתוב את הודעתך כאן..." class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-body text-sm outline-none focus:border-gold/40 transition-all duration-200 placeholder-neutral-600 resize-none" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full py-4 rounded-xl text-base font-condensed font-700 tracking-widest uppercase">שלח הודעה</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SPONSORS SECTION
+═══════════════════════════════════════════ -->
+<section class="py-16 px-6 border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-10 reveal">
+      <span class="font-condensed text-xs text-neutral-600 uppercase tracking-[0.3em]">ספונסרים ושותפים</span>
+    </div>
+    <div class="flex flex-wrap justify-center items-center gap-10 reveal">
+      <!-- Sponsor placeholders -->
+      <div class="sponsor-card glass rounded-xl px-8 py-4 cursor-pointer">
+        <div class="font-display text-2xl text-neutral-500 tracking-widest">SPONSOR A</div>
+      </div>
+      <div class="sponsor-card glass rounded-xl px-8 py-4 cursor-pointer">
+        <div class="font-display text-2xl text-neutral-500 tracking-widest">SPONSOR B</div>
+      </div>
+      <div class="sponsor-card glass rounded-xl px-8 py-4 cursor-pointer">
+        <div class="font-display text-2xl text-neutral-500 tracking-widest">SPONSOR C</div>
+      </div>
+      <div class="sponsor-card glass rounded-xl px-8 py-4 cursor-pointer">
+        <div class="font-display text-2xl text-neutral-500 tracking-widest">SPONSOR D</div>
+      </div>
+      <div class="sponsor-card glass rounded-xl px-8 py-4 cursor-pointer">
+        <div class="font-display text-2xl text-neutral-500 tracking-widest">SPONSOR E</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="border-t border-white/5 pt-16 pb-8 px-6" style="background:#090909;">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-3 mb-5">
+          <img src="logo.png" alt="VNFX Federation" class="h-16 w-auto object-contain" style="filter:drop-shadow(0 0 10px rgba(234,179,8,0.3));" />
+        </div>
+        <p class="font-body text-neutral-500 text-sm leading-relaxed max-w-sm">
+          האיגוד הישראלי לפיתוח גוף. מחויבים לרמה בינלאומית, לכבוד המתחרים, ולקידום ספורט פיתוח הגוף בישראל.
+        </p>
+        <p class="font-condensed text-xs text-neutral-600 mt-4 uppercase tracking-widest">NATURAL · OPEN · PROFESSIONAL</p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h4 class="font-condensed font-700 text-white text-sm uppercase tracking-widest mb-5">ניווט מהיר</h4>
+        <ul class="space-y-3">
+          <li><a href="#about" class="font-body text-neutral-500 text-sm hover:text-gold transition-colors cursor-pointer">אודות האיגוד</a></li>
+          <li><a href="#categories" class="font-body text-neutral-500 text-sm hover:text-gold transition-colors cursor-pointer">קטגוריות</a></li>
+          <li><a href="#why" class="font-body text-neutral-500 text-sm hover:text-gold transition-colors cursor-pointer">למה VNFX</a></li>
+          <li><a href="#event" class="font-body text-neutral-500 text-sm hover:text-gold transition-colors cursor-pointer">תחרויות</a></li>
+          <li><a href="#faq" class="font-body text-neutral-500 text-sm hover:text-gold transition-colors cursor-pointer">שאלות נפוצות</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal & Social -->
+      <div>
+        <h4 class="font-condensed font-700 text-white text-sm uppercase tracking-widest mb-5">כללי</h4>
+        <ul class="space-y-3 mb-8">
+          <li><a href="#" class="font-body text-neutral-500 text-sm hover:text-gold transition-colors cursor-pointer">תקנון התחרות</a></li>
+          <li><a href="#" class="font-body text-neutral-500 text-sm hover:text-gold transition-colors cursor-pointer">מדיניות פרטיות</a></li>
+          <li><a href="#" class="font-body text-neutral-500 text-sm hover:text-gold transition-colors cursor-pointer">תנאי שימוש</a></li>
+          <li><a href="#contact" class="font-body text-neutral-500 text-sm hover:text-gold transition-colors cursor-pointer">צור קשר</a></li>
+        </ul>
+        <div class="flex gap-3">
+          <a href="#" class="w-9 h-9 glass rounded-lg flex items-center justify-center hover:border-gold/30 transition-all cursor-pointer group" aria-label="Instagram">
+            <svg class="w-4 h-4 text-neutral-500 group-hover:text-gold transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 glass rounded-lg flex items-center justify-center hover:border-gold/30 transition-all cursor-pointer group" aria-label="Facebook">
+            <svg class="w-4 h-4 text-neutral-500 group-hover:text-gold transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 glass rounded-lg flex items-center justify-center hover:border-gold/30 transition-all cursor-pointer group" aria-label="YouTube">
+            <svg class="w-4 h-4 text-neutral-500 group-hover:text-gold transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 glass rounded-lg flex items-center justify-center hover:border-gold/30 transition-all cursor-pointer group" aria-label="TikTok">
+            <svg class="w-4 h-4 text-neutral-500 group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34l-.03-8.05a8.26 8.26 0 004.82 1.55V5.36a4.85 4.85 0 01-1.02-.67z"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-body text-neutral-600 text-xs">
+        &copy; 2025 VNFX Federation Israel. כל הזכויות שמורות.
+      </p>
+      <p class="font-condensed text-xs text-neutral-700 uppercase tracking-widest">
+        BUILT FOR CHAMPIONS · MADE IN ISRAEL
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════
+     PRIZES MODAL
+═══════════════════════════════════════════ -->
+<div id="prizes-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center px-4" style="background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);">
+  <div class="glass-gold rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-8 relative" style="border:1px solid rgba(234,179,8,0.3);">
+
+    <!-- Close -->
+    <button onclick="closePrizesModal()" class="absolute top-5 left-5 w-9 h-9 glass rounded-lg flex items-center justify-center cursor-pointer hover:border-gold/40 transition-all" aria-label="סגור">
+      <svg class="w-4 h-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <div class="text-center mb-8">
+      <span class="font-condensed text-xs text-gold uppercase tracking-[0.3em]">תחרות VNFX 2025</span>
+      <h3 class="font-display text-4xl text-white mt-2 leading-none">PRIZE <span class="text-gradient">TABLE</span></h3>
+      <p class="font-body text-neutral-400 text-sm mt-2">קטגוריות פתוחות מתוגמלות יותר</p>
+    </div>
+
+    <!-- OPEN CATEGORIES -->
+    <div class="mb-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="h-px flex-1" style="background:linear-gradient(90deg,transparent,#F97316,transparent);"></div>
+        <span class="font-condensed text-xs font-700 tracking-widest uppercase text-fire glass px-4 py-1 rounded-full border border-fire/20">קטגוריות פתוחות · OPEN</span>
+        <div class="h-px flex-1" style="background:linear-gradient(90deg,transparent,#F97316,transparent);"></div>
+      </div>
+      <div class="space-y-2">
+        <div class="flex items-center justify-between glass rounded-xl px-5 py-3">
+          <span class="font-condensed text-base text-white">Men's Physique Open</span>
+          <div class="flex gap-4 text-center">
+            <div><div class="font-display text-xl text-gradient">₪2,500</div><div class="font-condensed text-xs text-neutral-600">מקום 1</div></div>
+            <div><div class="font-display text-xl text-neutral-400">₪1,200</div><div class="font-condensed text-xs text-neutral-600">מקום 2</div></div>
+            <div><div class="font-display text-xl text-neutral-600">₪600</div><div class="font-condensed text-xs text-neutral-600">מקום 3</div></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between glass rounded-xl px-5 py-3">
+          <span class="font-condensed text-base text-white">Classic Physique Open</span>
+          <div class="flex gap-4 text-center">
+            <div><div class="font-display text-xl text-gradient">₪2,500</div><div class="font-condensed text-xs text-neutral-600">מקום 1</div></div>
+            <div><div class="font-display text-xl text-neutral-400">₪1,200</div><div class="font-condensed text-xs text-neutral-600">מקום 2</div></div>
+            <div><div class="font-display text-xl text-neutral-600">₪600</div><div class="font-condensed text-xs text-neutral-600">מקום 3</div></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between glass rounded-xl px-5 py-3">
+          <span class="font-condensed text-base text-white">Bodybuilding Open</span>
+          <div class="flex gap-4 text-center">
+            <div><div class="font-display text-xl text-gradient">₪4,000</div><div class="font-condensed text-xs text-neutral-600">מקום 1</div></div>
+            <div><div class="font-display text-xl text-neutral-400">₪2,000</div><div class="font-condensed text-xs text-neutral-600">מקום 2</div></div>
+            <div><div class="font-display text-xl text-neutral-600">₪800</div><div class="font-condensed text-xs text-neutral-600">מקום 3</div></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between glass rounded-xl px-5 py-3">
+          <span class="font-condensed text-base text-white">Wellness Open</span>
+          <div class="flex gap-4 text-center">
+            <div><div class="font-display text-xl text-gradient">₪2,000</div><div class="font-condensed text-xs text-neutral-600">מקום 1</div></div>
+            <div><div class="font-display text-xl text-neutral-400">₪1,000</div><div class="font-condensed text-xs text-neutral-600">מקום 2</div></div>
+            <div><div class="font-display text-xl text-neutral-600">₪500</div><div class="font-condensed text-xs text-neutral-600">מקום 3</div></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between glass rounded-xl px-5 py-3">
+          <span class="font-condensed text-base text-white">Bikini Open</span>
+          <div class="flex gap-4 text-center">
+            <div><div class="font-display text-xl text-gradient">₪2,000</div><div class="font-condensed text-xs text-neutral-600">מקום 1</div></div>
+            <div><div class="font-display text-xl text-neutral-400">₪1,000</div><div class="font-condensed text-xs text-neutral-600">מקום 2</div></div>
+            <div><div class="font-display text-xl text-neutral-600">₪500</div><div class="font-condensed text-xs text-neutral-600">מקום 3</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NATURAL CATEGORIES -->
+    <div class="mb-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="h-px flex-1" style="background:linear-gradient(90deg,transparent,#34d399,transparent);"></div>
+        <span class="font-condensed text-xs font-700 tracking-widest uppercase text-emerald-400 glass px-4 py-1 rounded-full border border-emerald-500/20">קטגוריות טבעיות · NATURAL</span>
+        <div class="h-px flex-1" style="background:linear-gradient(90deg,transparent,#34d399,transparent);"></div>
+      </div>
+      <div class="space-y-2">
+        <div class="flex items-center justify-between glass rounded-xl px-5 py-3">
+          <span class="font-condensed text-base text-white">Men's Physique Natural</span>
+          <div class="flex gap-4 text-center">
+            <div><div class="font-display text-xl text-emerald-400">₪1,500</div><div class="font-condensed text-xs text-neutral-600">מקום 1</div></div>
+            <div><div class="font-display text-xl text-neutral-400">₪700</div><div class="font-condensed text-xs text-neutral-600">מקום 2</div></div>
+            <div><div class="font-display text-xl text-neutral-600">₪350</div><div class="font-condensed text-xs text-neutral-600">מקום 3</div></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between glass rounded-xl px-5 py-3">
+          <span class="font-condensed text-base text-white">Classic Physique Natural</span>
+          <div class="flex gap-4 text-center">
+            <div><div class="font-display text-xl text-emerald-400">₪1,500</div><div class="font-condensed text-xs text-neutral-600">מקום 1</div></div>
+            <div><div class="font-display text-xl text-neutral-400">₪700</div><div class="font-condensed text-xs text-neutral-600">מקום 2</div></div>
+            <div><div class="font-display text-xl text-neutral-600">₪350</div><div class="font-condensed text-xs text-neutral-600">מקום 3</div></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between glass rounded-xl px-5 py-3">
+          <span class="font-condensed text-base text-white">Bodybuilding Natural</span>
+          <div class="flex gap-4 text-center">
+            <div><div class="font-display text-xl text-emerald-400">₪2,000</div><div class="font-condensed text-xs text-neutral-600">מקום 1</div></div>
+            <div><div class="font-display text-xl text-neutral-400">₪900</div><div class="font-condensed text-xs text-neutral-600">מקום 2</div></div>
+            <div><div class="font-display text-xl text-neutral-600">₪400</div><div class="font-condensed text-xs text-neutral-600">מקום 3</div></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between glass rounded-xl px-5 py-3">
+          <span class="font-condensed text-base text-white">Bikini Natural</span>
+          <div class="flex gap-4 text-center">
+            <div><div class="font-display text-xl text-emerald-400">₪1,200</div><div class="font-condensed text-xs text-neutral-600">מקום 1</div></div>
+            <div><div class="font-display text-xl text-neutral-400">₪600</div><div class="font-condensed text-xs text-neutral-600">מקום 2</div></div>
+            <div><div class="font-display text-xl text-neutral-600">₪300</div><div class="font-condensed text-xs text-neutral-600">מקום 3</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Note -->
+    <div class="glass rounded-xl px-5 py-4 text-center">
+      <p class="font-condensed text-xs text-neutral-500 uppercase tracking-widest">כל המקומות מקבלים גביע + מדליה + תעודה · פרסים כספיים משולמים במזומן ביום התחרות</p>
+    </div>
+
+    <div class="text-center mt-6">
+      <a href="#event" onclick="closePrizesModal()" class="btn-primary px-10 py-3.5 rounded-xl text-base font-condensed font-700 tracking-widest uppercase inline-block">הרשם לתחרות</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Navbar scroll ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ── Mobile menu ──
+  const burgerBtn = document.getElementById('burger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  burgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // ── Scroll reveal ──
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+    revealObserver.observe(el);
+  });
+
+  // ── Countdown timer ──
+  const eventDate = new Date('2026-10-28T10:00:00');
+  function updateCountdown() {
+    const now = new Date();
+    const diff = eventDate - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ── FAQ accordion ──
+  function toggleFaq(item) {
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').classList.remove('open');
+    });
+    // Open clicked if wasn't open
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.classList.add('open');
+    }
+  }
+
+  // ── Prizes Modal ──
+  function openPrizesModal() {
+    document.getElementById('prizes-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePrizesModal() {
+    document.getElementById('prizes-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('prizes-modal').addEventListener('click', function(e) {
+    if (e.target === this) closePrizesModal();
+  });
+
+  // ── Star Rating ──
+  let selectedRating = 0;
+  document.querySelectorAll('.star-label').forEach(label => {
+    label.addEventListener('click', () => {
+      selectedRating = parseInt(label.dataset.v);
+      updateStars(selectedRating);
+    });
+    label.addEventListener('mouseenter', () => updateStars(parseInt(label.dataset.v)));
+    label.addEventListener('mouseleave', () => updateStars(selectedRating));
+  });
+  function updateStars(val) {
+    document.querySelectorAll('.star-label').forEach(l => {
+      l.style.color = parseInt(l.dataset.v) <= val ? '#EAB308' : '#404040';
+    });
+  }
+
+  // ── Review submission ──
+  const reviewsData = [];
+  function submitReview(e) {
+    e.preventDefault();
+    const name = document.getElementById('r-name').value.trim();
+    const role = document.getElementById('r-role').value;
+    const text = document.getElementById('r-text').value.trim();
+    const rating = selectedRating;
+    if (!name || !text || !rating) return;
+
+    reviewsData.unshift({ name, role, text, rating, date: new Date().toLocaleDateString('he-IL') });
+    renderReviews();
+
+    document.getElementById('review-form').reset();
+    selectedRating = 0;
+    updateStars(0);
+    document.getElementById('r-name').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function renderReviews() {
+    const list = document.getElementById('reviews-list');
+    const empty = document.getElementById('reviews-empty');
+    if (reviewsData.length === 0) { empty.style.display = ''; return; }
+    empty.style.display = 'none';
+    const existing = list.querySelectorAll('.review-card');
+    existing.forEach(c => c.remove());
+    reviewsData.forEach((r, i) => {
+      const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+      const initial = r.name.charAt(0).toUpperCase();
+      const card = document.createElement('div');
+      card.className = 'review-card glass rounded-2xl p-6 reveal visible';
+      card.style.transitionDelay = (i * 0.05) + 's';
+      card.innerHTML = `
+        <div class="flex items-start gap-4 mb-3">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center font-display text-lg flex-shrink-0" style="background:linear-gradient(135deg,#CA8A04,#F97316);">${initial}</div>
+          <div class="flex-1">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div>
+                <span class="font-condensed font-700 text-white text-base">${r.name}</span>
+                <span class="font-condensed text-xs text-neutral-500 mr-2 uppercase tracking-widest">${r.role}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span style="color:#EAB308;letter-spacing:2px;font-size:1rem;">${stars}</span>
+                <span class="font-condensed text-xs text-neutral-600">${r.date}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="font-body text-neutral-300 text-sm leading-relaxed">${r.text}</p>`;
+      list.insertBefore(card, list.querySelector('#reviews-empty').nextSibling);
+    });
+  }
+
+  // ── Contact form ──
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = 'נשלח בהצלחה!';
+    btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+    setTimeout(() => {
+      btn.textContent = 'שלח הודעה';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // ── Smooth scroll for anchor links ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
